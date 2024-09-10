@@ -1,5 +1,3 @@
-# tests/test_coffee.py
-
 import pytest
 from coffee import Coffee
 from customer import Customer
