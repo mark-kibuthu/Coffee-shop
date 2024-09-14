@@ -1,0 +1,96 @@
+## Directory Structure
+
+coffee_shop/ │ ├── customer.py # Defines the Customer class and its methods ├── coffee.py # Defines the Coffee class and its methods ├── order.py # Defines the Order class and its methods ├── debug.py # Interactive script to debug and run the model ├── tests/ │ ├── test_customer.py # Unit tests for the Customer class │ ├── test_coffee.py # Unit tests for the Coffee class │ └── test_order.py # Unit tests for the Order class ├── Pipfile # Pipenv environment configuration ├── Pipfile.lock # Pipenv lock file for package versions └── README.md # Project documentation
+
+bash
+
+
+## Project Setup
+
+### Step 1: Clone the Repository
+```bash
+git clone 
+cd coffee_shop
+
+Step 2: Set Up the Virtual Environment
+
+Make sure you have pipenv installed. If not, install it using:
+
+bash
+
+pip install pipenv
+
+Then, create and activate the virtual environment:
+
+bash
+
+pipenv install
+pipenv shell
+
+Step 3: Install Dependencies
+
+The only dependency for this project is pytest, which is used for running tests. Install it using:
+
+bash
+
+pipenv install pytest
+
+Running the Project
+
+You can run the debug.py script to interactively create instances of Customer, Coffee, and Order classes and see their relationships in action:
+
+bash
+
+python debug.py
+
+Running Tests
+
+The project includes unit tests for each class (Customer, Coffee, and Order) in the tests/ directory. You can run the tests using pytest:
+
+bash
+
+pytest
+
+1. Customer
+
+    Attributes:
+        name: A string representing the customer's name (1 to 15 characters).
+    Methods:
+        create_order(coffee, price): Creates an order for a given coffee with a specified price.
+        orders(): Returns a list of all orders the customer has placed.
+        coffees(): Returns a list of unique coffees ordered by the customer.
+
+2. Coffee
+
+    Attributes:
+        name: A string representing the coffee's name (at least 3 characters).
+    Methods:
+        orders(): Returns a list of all orders for this coffee.
+        customers(): Returns a list of unique customers who ordered this coffee.
+        num_orders(): Returns the total number of orders for this coffee.
+        average_price(): Returns the average price for all orders of this coffee.
+
+3. Order
+
+    Attributes:
+        customer: A Customer object representing the customer who placed the order.
+        coffee: A Coffee object representing the coffee that was ordered.
+        price: A float representing the price of the order (1.0 to 10.0).
+    Methods:
+        customer(): Returns the customer for this order.
+        coffee(): Returns the coffee for this order.
+
+Bonus Feature
+Customer.most_aficionado(coffee)
+
+    Returns the customer who has spent the most money on a specific coffee.
+    Returns None if no orders exist for that coffee.
+
+Exception Handling and Validations
+
+    All class properties and initializers include input validation.
+    Invalid inputs (such as a customer name that's too long or a price out of range) will raise exceptions to ensure data integrity.
+
+Debugging and Refactoring
+
+    Use the debug.py file for interactive testing of the model.
